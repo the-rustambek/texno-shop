@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-notification {
+  display: flex;
+  margin-right: 35px;
+  background-color: white;
+  position: relative;
+}
+.notification-top {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ffffff;
+    background: #00c48c;
+    padding: 3px;
+    max-width: 16px;
+    max-height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 6%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+  }
+.header-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3d639d;
+  border-radius: 0px 0px 0px 30px;
+  padding: 13px 50px;
+}
+.header-text {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  padding-right: 20px;
+}
+.header-avatar {
+  width: 32px;
+  height: 32px;
+}
+

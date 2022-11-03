@@ -1,7 +1,7 @@
 import React from 'react'
 import NotificationIcon from '../../Assets/Images/Notification.png'
 import HeaderAvatar from '../../Assets/Images/icon-личныйкабинет.png'
-
+import "./Header.css"
 export default function Header() {
     return (
         <header className='header'>
