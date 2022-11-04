@@ -1,38 +1,231 @@
-.swiper-product img{
-    width: 271px;
-    height: 265px;
+.swiper-product img {
+  width: 271px;
+  height: 265px;
 }
 
-.swiper-product{
-    width: 480px;
-    height: 380px;
-    background: #F3F5F8;
-border-radius: 16px;
-display: flex;
-justify-content: center;
-align-items: center;
+.swiper-product {
+  width: 480px;
+  height: 380px;
+  background: #f3f5f8;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.swiper-slide{
-display: flex;
-justify-content: center;
-align-items: center;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.productspage-title{
-    font-family: 'Gilroy';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 26px;
-color: #3D639D;
+.productspage-title {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 26px;
+  color: #3d639d;
+}
 
+.productspage-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
 }
 
 .productspage-box{
-    background: #FFFFFF;
-border-radius: 16px;
+    margin: 23px 0;
+}
+.products-about{
+display: flex;
+   margin: 20px;
+}
+.productspage-title{
+    padding: 25px;
+    padding-bottom: 10px;
+ }
+ .products-info{
+    padding: 0px 20px;
+    width: 100%;
+
+ }
+ .products-subtext{
+    font-family: 'Gilroy';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+ 
+color: #BBC2D0;
+
+ }
+ .products-sum{
+    font-family: 'Gilroy';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+ 
+letter-spacing: 0.01em;
+ 
+color: #262728;
+
+ }
+ .products-sena-obshaya{
+    margin-top: 30px;
+ }
+ .products-sum {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    line-height: 150%;
+ }
+ .products-sum span{
+    font-family: 'Gilroy';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+ 
+text-align: right;
+letter-spacing: -0.3px;
+
+ 
+color: #FFFFFF;
+
+background: #FF647C;
+border-radius: 2px;
+padding: 2px 8px;
+
+ }
+ .products-sum div{
+    display: flex;
+    align-items: center;
+ }
+ .products-sum div p{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.3px;
+    color: #BBC2D0;
+    padding-left: 8px;
+ }
+
+.products-month{
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 1px;
+}
+.products-btn{
+
+    width: 25%;
+    background-color: white;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: -0.3px;
+    padding: 10px 0;
+    text-align: center;
+    color: #00C48C;
+     border: 2px solid #00C48C;
+
+}
+.products-btn:nth-child(2), .products-btn:nth-child(3){
+    border-left: 1px solid #00C48C;
+    border-right: 1px solid #00C48C;
+}
+.products-btn:nth-child(1){
+    border-top-left-radius: 4px; 
+    border-bottom-left-radius: 4px; 
+}.products-btn:nth-child(4)
+{
+    border-top-right-radius: 4px; 
+    border-bottom-right-radius: 4px; 
 }
 
-.swiper-button-prev, .swiper-button-next{
-    display: none !important;
+.products-btn:hover{
+    background: #00C48C;
+    color: white;
+    border: 2px solid #00C48C;
+
+}
+.products-natsenka{
+    font-family: 'Gilroy';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+ 
+color: #262728;
+text-align: center
+;
+margin: 0 auto;
+}
+.products-subinfo{
+    display: flex;
+}
+.products-subinfo p:nth-child(2){
+padding-left: 10px;}
+.products-xarakteristika{
+    padding: 5px 0;
+}
+.products-subtext {
+    margin: 5px 0;
+ }
+
+
+
+ .MuiPaper-root{
+    box-shadow: none;
+    margin-top: 15px;
+    
+ }
+ .MuiTypography-root{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #00C48C;  
+
+ }
+ .MuiAccordion-region .MuiTypography-root{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: #BBC2D0;  
+ }
+.MuiSvgIcon-root{
+    transform: rotate(-90deg) !important;
+    color: #00C48C !important;   
+}
+.css-yw020d-MuiAccordionSummary-expandIconWrapper.Mui-expanded{
+    transform: rotate(90deg) !important;
+
+}
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+    margin: 0 !important
+    ;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{
+    min-height: 45px;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root, .css-15v22id-MuiAccordionDetails-root {
+    padding: 0 !important;
 }
