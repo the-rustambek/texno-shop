@@ -35,7 +35,7 @@ const Posts = ({ posts, loading }) => {
         <Link to="/products-about">
           <h3 className="products-name">{product?.title} </h3>
         </Link>
-        <p className="products-price">7 300 000 сум</p>
+        <p className="products-price">{product?.id*100000} сум</p>
         <div className="products-card">
           <div className="products-money">от 2 435 000 сум</div>
           <span>x24</span>

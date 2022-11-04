@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import UseProducts from '../components/useProducts'
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-
+ 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -14,7 +12,6 @@ export default function Products() {
       setPosts(res.data);
       setLoading(false);
     };
-
     fetchPosts();
   }, []);
 
@@ -22,12 +19,9 @@ export default function Products() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
