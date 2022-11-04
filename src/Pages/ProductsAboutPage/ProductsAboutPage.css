@@ -1,0 +1,38 @@
+.swiper-product img{
+    width: 271px;
+    height: 265px;
+}
+
+.swiper-product{
+    width: 480px;
+    height: 380px;
+    background: #F3F5F8;
+border-radius: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.swiper-slide{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.productspage-title{
+    font-family: 'Gilroy';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 26px;
+color: #3D639D;
+
+}
+
+.productspage-box{
+    background: #FFFFFF;
+border-radius: 16px;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    display: none !important;
+}

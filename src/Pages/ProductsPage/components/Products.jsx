@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import PriceIcon from "../../../Assets/Svg/price.svg";
 import skidka from "../../../Assets/Svg/skidka.svg";
 import refresh from "../../../Assets/Svg/refresh.svg";
+import { Link } from "react-router-dom";
 
 
 export default function Products() {
@@ -33,13 +34,13 @@ export default function Products() {
             {currentTableData?.map((product, i) => (
               <li className="products-item" key={i}>
                 <div className="products-thumb">
-                  <a href="#">
+                  <Link to="/products-about">
                     <img
                       src={productsImage}
                       alt="productsImage"
                       className="products-img"
                     />
-                  </a>
+                  </Link>
                   <div className="products-box">
                     <img src={PriceIcon} alt="" className="price-icon" />
                   </div>
@@ -50,9 +51,9 @@ export default function Products() {
                     <img src={refresh} alt="" className="price-refresh" />
                   </div>
                 </div>
-                <a href="#">
+                <Link to="/products-about">
                   <h3 className="products-name">{product?.title} </h3>
-                </a>
+                </Link>
                 <p className="products-price">7 300 000 сум</p>
                 <div className="products-card">
                   <div className="products-money">от 2 435 000 сум</div>

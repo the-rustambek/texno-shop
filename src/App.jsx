@@ -2,7 +2,8 @@ import "./App.css";
 import Dashboard from '../src/Components/Dashboard/Dashboard';
 import Header from '../src/Components/Header/Header';
 import ProductsPage from "./Pages/ProductsPage/ProductsPage"
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import ProductsAboutPage from "./Pages/ProductsAboutPage/ProductsAboutPage";
 function App() {
   return <div className="app">
       <Dashboard />
@@ -15,7 +16,7 @@ function App() {
           <Route path="/tovar" element={<div className="page">Tovarlar pagega xush kelibsiz</div>}/>
           <Route path="/otziv" element={<div className="page">Otziv pagega xush kelibsiz</div>}/>
           <Route path="/products" element={<ProductsPage />}/>
-          <Route path="/products-about" element={"Products-about"}/>
+          <Route path="/products-about" element={<ProductsAboutPage />}/>
         </Routes>
       </main>
   </div>;
