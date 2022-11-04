@@ -6,6 +6,7 @@ import dashboardIcon2 from '../../Assets/Svg/document5.svg'
 import dashboardIcon3 from '../../Assets/Svg/document4.svg'
 import dashboardIcon4 from '../../Assets/Svg/document2.svg'
 import HomeSvg from '../../Assets/Svg/HomeSvg';
+import { Link } from 'react-router-dom';
  
 
 export default function Dashboard() {
@@ -17,44 +18,44 @@ export default function Dashboard() {
         <div className="dashboard-bottom">
             <ul className="dashboard-list">
                 <li className="dashboard-item">
-                    <a  className="dashboard-link" href="/">
+                    <Link  className="dashboard-link" to="/">
                     <HomeSvg />
                     <p className="dashboard-text">
                     Главная
                     </p>
-                    </a>
+                    </Link>
                 </li>
                 <li className="dashboard-item">
-                    <a  className="dashboard-link" href="/">
+                    <Link  className="dashboard-link" to="/zakaz">
                     <img src={dashboardIcon1} alt="" className="dashboard-icon" />
                     <p className="dashboard-text">
                     Заказы
                     </p>
-                    </a>
+                    </Link>
                 </li>
                 <li className="dashboard-item">
-                    <a  className="dashboard-link" href="/">
+                    <Link  className="dashboard-link" to="/tovar">
                     <img src={dashboardIcon2} alt="" className="dashboard-icon" />
                     <p className="dashboard-text">
                     Товары
                     </p>
-                    </a>
+                    </Link>
                 </li>
                 <li className="dashboard-item">
-                    <a  className="dashboard-link" href="/">
+                    <Link  className="dashboard-link" to="/otziv">
                     <img src={dashboardIcon3} alt="" className="dashboard-icon" />
                     <p className="dashboard-text">
                     Отзывы
                     </p>
-                    </a>
+                    </Link>
                 </li>
                 <li className="dashboard-item">
-                    <a  className="dashboard-link" href="/">
+                    <Link  className="dashboard-link" to="/products">
                     <img src={dashboardIcon4} alt="" className="dashboard-icon" />
                     <p className="dashboard-text">
                     Оформить заказ
                     </p>
-                    </a>
+                    </Link>
                 </li>
                 
             </ul>

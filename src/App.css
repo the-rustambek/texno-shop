@@ -24,3 +24,11 @@ a{
 button{
   border: none;
 }
+
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blueviolet;
+  font-size: 40px;
+}

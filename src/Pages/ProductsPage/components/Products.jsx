@@ -1,8 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import productsImage from "../../../Assets/Images/productsImage.png";
+import productsImage from "../../../Assets/Svg/phone.svg";
 import Pagination from "./Pagination";
+import PriceIcon from "../../../Assets/Svg/price.svg";
+import skidka from "../../../Assets/Svg/skidka.svg";
+import refresh from "../../../Assets/Svg/refresh.svg";
 
-let PageSize = 10;
+
 export default function Products() {
   const [products, setProducts] = useState([]);
 
@@ -11,8 +14,9 @@ export default function Products() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-
+ 
   const [currentPage, setCurrentPage] = useState(1);
+  let PageSize = 10;
 
   var currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -20,10 +24,9 @@ export default function Products() {
     return products.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
-  currentTableData=products.slice(0,10)
-  return (
+   return (
     <div className="products">
-      <h2 className="products-count">Все товары (121)</h2>
+      <h2 className="products-count">Все товары ({products.length})</h2>
       <div className="products-blok">
         {currentTableData?.length > 0 && (
           <ul className="products-list">
@@ -37,6 +40,15 @@ export default function Products() {
                       className="products-img"
                     />
                   </a>
+                  <div className="products-box">
+                    <img src={PriceIcon} alt="" className="price-icon" />
+                  </div>
+                  <div className="products-skidka">
+                    <img src={skidka} alt="" className="price-skidka" />
+                  </div>
+                  <div className="products-refresh">
+                    <img src={refresh} alt="" className="price-refresh" />
+                  </div>
                 </div>
                 <a href="#">
                   <h3 className="products-name">{product?.title} </h3>
