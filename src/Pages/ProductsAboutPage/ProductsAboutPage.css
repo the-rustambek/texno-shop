@@ -1,4 +1,4 @@
-.swiper-product img {
+.swiper-product .mySwiper img {
   width: 271px;
   height: 265px;
 }
@@ -229,3 +229,34 @@ padding-left: 10px;}
 .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root, .css-15v22id-MuiAccordionDetails-root {
     padding: 0 !important;
 }
+
+.swiper-product{
+    position: relative;
+}
+.swiper-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0%,0%);
+    z-index: 11;
+}
+.swiper-item{
+    
+background: #F39DBD;
+border-radius: 6px;
+width: 36px;
+height: 28px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin:12px 15px;
+}
+ .swiper-price{
+    background: #A2AEDB;
+ }
+ .swiper-skidka{
+    background: #FFBD95;
+ }
+ .swiper-skidkagreen{
+    background: #AAD9AC;
+ }
