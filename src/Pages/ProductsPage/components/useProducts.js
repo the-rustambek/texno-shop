@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import productsImage from "../../../Assets/Svg/phone.svg";
 import PriceIcon from "../../../Assets/Svg/price.svg";
@@ -7,9 +7,7 @@ import refresh from "../../../Assets/Svg/refresh.svg";
 import Skeleton from "@mui/material/Skeleton";
 
 const Posts = ({ posts, loading }) => {
-  // if (loading) {
-  //   return <h2>Loading...</h2>;
-  // }
+
 
   return (
     <ul className="products-list">

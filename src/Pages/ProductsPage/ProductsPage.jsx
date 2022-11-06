@@ -16,8 +16,7 @@ export default function ProductsPage() {
         Оформить заказ
         </p>
       </div>
-      <SearchProduct />
-      <Products />
+       <Products />
     </div>
   )
 }
