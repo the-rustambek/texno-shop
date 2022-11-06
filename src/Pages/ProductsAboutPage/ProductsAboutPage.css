@@ -1,6 +1,7 @@
 .swiper-product .mySwiper img {
   width: 271px;
   height: 265px;
+  object-fit: contain;
 }
 
 .swiper-product {
