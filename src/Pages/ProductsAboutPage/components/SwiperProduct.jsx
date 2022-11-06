@@ -59,6 +59,7 @@ export default function SwiperProduct() {
         pagination={{
           clickable: true,
         }}
+        loop={true}
         navigation={true}
         modules={[ Pagination, Navigation]}
         className="mySwiper"

@@ -6,7 +6,6 @@ import refresh from "../../../Assets/Svg/refresh.svg";
 import Skeleton from "@mui/material/Skeleton";
 
 const Posts = ({ posts, loading }) => {
- 
   return (
     <ul className="products-list">
       {(loading ? Array.from(new Array(10)) : posts)?.map((product, i) => (
@@ -14,7 +13,7 @@ const Posts = ({ posts, loading }) => {
           <>
             {product ? (
               <div className="products-thumb">
-                <Link to={`/products-about/=${product?.slug}`} >
+                <Link to={`/products-about/=${product?.slug}`}>
                   <img
                     // src={productsImage}
                     src={product?.img}
@@ -38,8 +37,7 @@ const Posts = ({ posts, loading }) => {
           </>
 
           {product ? (
-                          <Link to={`/products-about/=${product?.slug}`} >
-
+            <Link to={`/products-about/=${product?.slug}`}>
               <h3 className="products-name">{product?.name} </h3>
             </Link>
           ) : (
