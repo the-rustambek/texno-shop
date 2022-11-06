@@ -8,8 +8,8 @@ export default function Products() {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      setPosts(res.data);
+      const res = await axios.get('https://api.radius.uz/api/v2/products?page=1&category_id=39&order_by=views&order_direction=desc&price_from=0&price_to=22999000');
+      setPosts(res.data?.data);
       setLoading(false);
     };
     fetchPosts();
