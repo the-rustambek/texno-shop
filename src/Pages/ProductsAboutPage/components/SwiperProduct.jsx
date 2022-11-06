@@ -14,7 +14,8 @@ import "../ProductsAboutPage.css";
 import {  useParams } from "react-router-dom";
 import axios from "axios";
 import { get } from "lodash";
- 
+import Skeleton from "@mui/material/Skeleton";
+
 import {   Pagination, Navigation } from "swiper";
 
 export default function SwiperProduct() {
@@ -35,6 +36,7 @@ export default function SwiperProduct() {
     fetchPosts();
    }, []);
   return (
+    
     <div className="swiper-product">
         <ul className="swiper-list">
           <li className="swiper-item">
@@ -66,10 +68,13 @@ export default function SwiperProduct() {
       >
               {get(posts,"[0]")?.gallery?.map((product, i) => (
   <SwiperSlide>
+                  {loading ? (<Skeleton variant="rounded" width="480" height="380"  /> ) : (
+
   <img
     src={product?.original}
     className="swiper-lazy" alt="swiper-img"
   />
+                  )}
  </SwiperSlide>
               ))}
 

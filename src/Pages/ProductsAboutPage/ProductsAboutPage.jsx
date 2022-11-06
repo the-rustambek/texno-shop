@@ -14,6 +14,7 @@ import Buy from "../../../src/Assets/Svg/Buy.svg"
 import skidka from "../../../src/Assets/Svg/skidka.svg"
 import skidkagreen from "../../../src/Assets/Svg/skidkagreen.svg"
 import Checkbox from "@mui/material/Checkbox";
+import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import { get } from "lodash";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -30,13 +31,13 @@ export default function ProductsAboutPage() {
       (slugitem)=> slugitem?.slug===slug
     )
        setPosts(filtered);
-       console.log(filtered)
-       setLoading(false);
+        setLoading(false);
     };
     fetchPosts();
    }, []);
  
    return (
+    
     <div className="productspage">
       <div className="products-top">
         <Link to="/" className="products-toplink">
@@ -48,11 +49,13 @@ export default function ProductsAboutPage() {
         </Link>
         <span>{">"}</span>
         <p className="productspage-text">
-        {get(posts,"[0].name")}          </p>
+      {get(posts,"[0].name")}          </p>
       </div>
       <div className="productspage-box">
-        <h2 className="productspage-title">
-{get(posts,"[0].name")}        </h2>
+      {loading ? (<Skeleton variant="text" style={{ marginLeft: 20 }} width={450} height={48} /> ) : (
+            <h2 className="productspage-title">
+            {get(posts,"[0].name")} </h2>
+            )}
         <button className="korzinka-btn">
           <img src={Buy} alt="" className="korzinka-icon" />
         </button>
@@ -62,21 +65,31 @@ export default function ProductsAboutPage() {
             <div className="products-info">
               <div className="products-sena">
                 <p className="products-subtext">Цена телефона</p>
+                {loading ? (<Skeleton variant="text"  width={100} height={32} /> ) : (
                 <span className="products-sum">{get(posts,"[0].installment_prices[2].current_price_formatted")}</span>
+                )}
               </div>
 
               <div className="products-sena-obshaya">
                 <p className="products-subtext">Общая цена (с наценкой) </p>
                 <span className="products-sum">
-                  <p>{get(posts,"[0].current_price_formatted")} </p><div> <span>{get(posts,"[0].installment_prices[0].current_price")}</span> <p>x{get(posts,"[0].installment_prices[0].duration")}</p></div> 
+                {loading ? (<Skeleton variant="text"  width={100} height={32} /> ) : (
+  <p>{get(posts,"[0].current_price_formatted")} </p> )}<div>
+    
+    {loading ? (<Skeleton variant="rounded"  width={60} height={22} /> ) : (
+ <span>{get(posts,"[0].installment_prices[0].current_price")}</span> )}         
+        {loading ? (<Skeleton variant="text"style={{ marginLeft: 5 }}  width={20} height={22} /> ) : (
+  <p>x{get(posts,"[0].installment_prices[0].duration")}</p>)}</div> 
                 </span>
               </div>
+              {loading ? (<Skeleton variant="rounded" height={40}  /> ) : (
               <div className="products-month">
-                <button className="products-btn">3 мес</button>
-                <button className="products-btn">6 мес</button>
-                <button className="products-btn">9 мес</button>
-                <button className="products-btn">12 мес</button>
-              </div>
+              
+  <button className="products-btn">{get(posts,"[0].installment_prices[0].duration")} мес</button>
+                <button className="products-btn">{get(posts,"[0].installment_prices[1].duration")} мес</button>
+                <button className="products-btn">{get(posts,"[0].installment_prices[0].duration")*3}  мес</button>
+                <button className="products-btn">{get(posts,"[0].installment_prices[2].duration")}  мес</button>
+               </div> )} 
               <div className="products-natsenka">Наценка: <b> 5% </b></div>
               <div className="products-xarakteristika">
                 <p className="products-subtext">Общие характеристики </p>
@@ -100,9 +113,10 @@ export default function ProductsAboutPage() {
             <Typography>Показать все</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-            {get(posts,"[0].description")}  ipsum dolor sit amet consectetur adipisicing elit.
-            </Typography>
+          {loading ? (<Skeleton variant="text"  width={450} height={62} /> ) : (
+ <Typography>
+            {get(posts,"[0].description")}  ipsum dolor sit amet consectetur adipisicing elit. m dolor sit amet consecte m dolor sit amet consecte
+            </Typography>)}
           </AccordionDetails>
         </Accordion>
     
