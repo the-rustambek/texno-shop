@@ -53,3 +53,20 @@
   height: 32px;
 }
 
+
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
+  background-color: #3d639d !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+   width: 234px !important;
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+   flex-direction: column !important;
+   text-align: justify;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  width: 200px !important;
+}

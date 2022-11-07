@@ -2,8 +2,19 @@ import React from 'react'
 import NotificationIcon from '../../Assets/Images/Notification.png'
 import HeaderAvatar from '../../Assets/Images/icon-личныйкабинет.png'
 import "./Header.css"
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
 export default function Header() {
-    return (
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    }; return (
         <header className='header'>
             <div className="header-right">
                 <button type='button' className="header-notification">
@@ -11,12 +22,33 @@ export default function Header() {
                     <span className='notification-top'>12</span>
                 </button>
                 <div className="header-profile">
-                    <button className="header-btn">
+                    <Button
+                        id="fade-button"
+                        aria-controls={open ? 'fade-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                        className="header-btn"
+                    >
                         <p className="header-text">
                             Личный кабинет
                         </p>
                         <img src={HeaderAvatar} alt="HeaderAvatar" className="header-avatar" />
-                    </button>
+                    </Button>
+                    <Menu
+                        id="fade-menu"
+                        MenuListProps={{
+                            'aria-labelledby': 'fade-button',
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        TransitionComponent={Fade}
+                    >
+                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                        <MenuItem onClick={handleClose}>My account</MenuItem>
+                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    </Menu>
                 </div>
             </div>
 

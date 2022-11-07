@@ -17,12 +17,13 @@ import Checkbox from "@mui/material/Checkbox";
 import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import { get } from "lodash";
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function ProductsAboutPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   let { slug } = useParams()
+ 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
