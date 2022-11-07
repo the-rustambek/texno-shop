@@ -30,8 +30,7 @@ export default function SwiperProduct() {
       (slugitem)=> slugitem?.slug===slug
     )
        setPosts(filtered);
-       console.log(filtered)
-       setLoading(false);
+        setLoading(false);
     };
     fetchPosts();
    }, []);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NotificationIcon from '../../Assets/Images/Notification.png'
 import HeaderAvatar from '../../Assets/Images/icon-личныйкабинет.png'
 import "./Header.css"
@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+import { Context } from '../../Context/CountContext';
 export default function Header() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -14,13 +15,21 @@ export default function Header() {
     };
     const handleClose = () => {
         setAnchorEl(null);
-    }; return (
+    }; 
+    
+    const {orderFoods,setOrderFoods} = useContext(Context);
+console.log(orderFoods,"orderffoofofs")
+    
+    return (
         <header className='header'>
             <div className="header-right">
                 <button type='button' className="header-notification">
                     <img src={NotificationIcon} alt="dsd" />
-                    <span className='notification-top'>12</span>
-                </button>
+                    {orderFoods.length > 0 && (
+                       <>{orderFoods.map((food)=> (  
+                         <span className='notification-top'>{food.count}</span>
+                       ) )}</> )}
+                        </button>
                 <div className="header-profile">
                     <Button
                         id="fade-button"

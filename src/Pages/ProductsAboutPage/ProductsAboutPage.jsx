@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./ProductsAboutPage.css";
 import "swiper/css/bundle";
@@ -17,6 +17,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import { get } from "lodash";
+import { Context } from "../../Context/CountContext";
  const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function ProductsAboutPage() {
@@ -37,6 +38,18 @@ export default function ProductsAboutPage() {
     fetchPosts();
   }, []);
 
+  /**************** count *********************** */
+  const {orderFoods, setOrderFoods} = useContext(Context);
+const countFunction = ()=>{
+  
+  get(posts,"[0]").count = get(posts,"[0]").count ? 
+  get(posts,"[0]").count + 1 : 1;
+  const uniqueArr = [
+    ...new Set([...orderFoods,get(posts,"[0]")])
+  ]
+  // console.log(foundFood)
+  setOrderFoods(uniqueArr)
+}
   return (
 
     <div className="productspage">
@@ -194,7 +207,8 @@ export default function ProductsAboutPage() {
                   </div>
                 </li>
               </ul>
-              <button type="button" className="productspage-zakaz">
+              <button type="button" onClick={countFunction} 
+              className="productspage-zakaz">
                 Добавить в корзину
               </button>
             </div>
