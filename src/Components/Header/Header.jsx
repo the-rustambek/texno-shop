@@ -18,8 +18,7 @@ export default function Header() {
     }; 
     
     const {orderFoods,setOrderFoods} = useContext(Context);
-console.log(orderFoods,"orderffoofofs")
-    
+     
     return (
         <header className='header'>
             <div className="header-right">
