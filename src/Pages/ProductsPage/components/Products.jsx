@@ -3,10 +3,14 @@ import Pagination from "./Pagination";
 import axios from "axios";
 import UseProducts from '../components/useProducts'
 import SearchImg from "../../../Assets/Images/Search.png";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Products() {
   const [query, setQuery] = useState("");
    const keys = ["name", "description"];
+   const [prev, setPrev] = useState(true);
+   const [next, setNext] = useState(false);
   const search = (posts) => {
     return posts.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(query))
@@ -32,8 +36,36 @@ export default function Products() {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = pageNumber => setCurrentPage(pageNumber);
+  
+  useEffect(() => {
+    
+     if (currentPage > 1) {
+      setPrev(false);
+    } else {
+      setPrev(true);
+    }
+    if (currentPage < postsPerPage) {
+      setNext(false);
+    } else if (currentPage >= postsPerPage) {
+      setNext(true);
+    }
+  }, [currentPage, postsPerPage, posts]);
 
+  const handleNextPage = () => {
+    if (currentPage < postsPerPage) {
+      setCurrentPage(currentPage + 1);
+    } else {
+      setNext(true);
+    }
+  };
 
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    } else {
+      setPrev(true);
+    }
+  };
   return (
     <><div className='search-box'>
     <h2 className="search-title">
@@ -50,11 +82,27 @@ export default function Products() {
       <h2 className="products-count">Все товары ({posts.length})</h2>
       <div className="products-blok">
       <UseProducts posts={search(currentPosts)} loading={loading} />
-         <Pagination
+      <div className="products-pagination">
+      <button
+            disabled={prev}
+            className="pagination-button"
+            onClick={handlePrevPage}
+          >
+            <ArrowBackIosIcon />
+          </button>
+          <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
       />
+        <button
+            disabled={next}
+            className="pagination-button"
+            onClick={handleNextPage}
+          >
+            <ArrowForwardIosIcon />
+          </button>
+          </div>   
       </div>
     </div>
     </>

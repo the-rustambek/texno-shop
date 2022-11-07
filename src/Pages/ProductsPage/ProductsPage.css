@@ -291,3 +291,15 @@
   background-color: transparent;
   cursor: default;
 }
+
+
+
+
+.products-pagination{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pagination-button{
+  transform: rotate(90deg);
+}
