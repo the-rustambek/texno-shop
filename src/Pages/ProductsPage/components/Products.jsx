@@ -21,8 +21,7 @@ export default function Products() {
       setLoading(true);
       const res = await axios.get(`https://api.radius.uz/api/v2/products?page=1&category_id=39&order_by=views&order_direction=desc&price_from=0&price_to=22999000?q=${query}`);
       setPosts(res.data?.data);
-      console.log(res.data?.data,"res.data?.data")
-
+ 
       setLoading(false);
     };
     if (query.length === 0 || query.length > 2) fetchPosts();

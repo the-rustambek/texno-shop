@@ -18,13 +18,13 @@ import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import { get } from "lodash";
 import { Context } from "../../Context/CountContext";
- const label = { inputProps: { "aria-label": "Checkbox demo" } };
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function ProductsAboutPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   let { slug } = useParams()
- 
+
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -39,21 +39,39 @@ export default function ProductsAboutPage() {
   }, []);
 
   /**************** count *********************** */
-  const {orderFoods, setOrderFoods} = useContext(Context);
-const countFunction = ()=>{
-  
-  get(posts,"[0]").count = get(posts,"[0]").count ? 
-  get(posts,"[0]").count + 1 : 1;
-  const uniqueArr = [
-    ...new Set([...orderFoods,get(posts,"[0]")])
-  ]
-  // console.log(foundFood)
-  setOrderFoods(uniqueArr)
-}
+  const { orderFoods, setOrderFoods } = useContext(Context);
+  const countFunction = () => {
 
-/****************    months ******************************** */
- 
+    get(posts, "[0]").count = get(posts, "[0]").count ?
+      get(posts, "[0]").count + 1 : 1;
+    const uniqueArr = [
+      ...new Set([...orderFoods, get(posts, "[0]")])
+    ]
+    // console.log(foundFood)
+    setOrderFoods(uniqueArr)
+  }
 
+  /****************    months ******************************** */
+  const [priceIndex, setPriceIndex] = useState("0");
+  const { name } = useParams();
+  const [checked, setChecked] = useState(true);
+
+  const setDuration = (e) => {
+    setPriceIndex(e?.target?.value);
+    console.log(e?.target, "etarget")
+    document.querySelectorAll(".products-btn").forEach((e) => {
+      e.classList.remove("products-btn-active");
+    });
+
+    e.target.classList.add("products-btn-active");
+  };
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+  /******************************************* */
+  console.log(get(posts,"[0]"))
+  console.log(priceIndex, "priceIndex")
   return (
 
     <div className="productspage">
@@ -84,7 +102,7 @@ const countFunction = ()=>{
               <div className="products-sena">
                 <p className="products-subtext">Цена телефона</p>
                 {loading ? (<Skeleton variant="text" width={100} height={32} />) : (
-                  <span className="products-sum">{get(posts, "[0].installment_prices[2].current_price_formatted")}</span>
+                  <span className="products-sum">{get(posts, "[0].current_price_formatted")}</span>
                 )}
               </div>
 
@@ -92,20 +110,38 @@ const countFunction = ()=>{
                 <p className="products-subtext">Общая цена (с наценкой) </p>
                 <span className="products-sum">
                   {loading ? (<Skeleton variant="text" width={100} height={32} />) : (
-                    <p>{get(posts, "[0].current_price_formatted")} </p>)}<div>
+                    <p>   
+                      {
+                      get(posts,`[0].installment_prices[${priceIndex}].current_price_formatted`)
+                    }
+                    </p>
+                    )}
+                    <div>
 
                     {loading ? (<Skeleton variant="rounded" width={60} height={22} />) : (
-                      <span>{get(posts, "[0].installment_prices[0].current_price")}</span>)}
+                      <span>{
+                        get(posts,`[0].installment_prices[${priceIndex}].current_price`) /  get(posts,`[0].installment_prices[${priceIndex}].duration`)
+                      }</span>)}
                     {loading ? (<Skeleton variant="text" style={{ marginLeft: 5 }} width={20} height={22} />) : (
-                      <p>x{get(posts, "[0].installment_prices[0].duration")}</p>)}</div>
+                      <p>x{
+                        get(posts,`[0].installment_prices[${priceIndex}].duration`)
+                      }</p>)}</div>
                 </span>
               </div>
               {loading ? (<Skeleton variant="rounded" height={40} />) : (
                 <div className="products-month">
-                  <button type="button"  alt="1" className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration")} мес</button>
-                  <button type="button"   className={`products-btn  `}>{get(posts, "[0].installment_prices[1].duration")} мес</button>
-                  <button type="button"   className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration") * 3}  мес</button>
-                  <button type="button"  className={`products-btn  `}>{get(posts, "[0].installment_prices[2].duration")}  мес</button>
+                  <button type="button" value={0}
+                    onClick={(e) => setDuration(e)}
+                    className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration")}  мес</button>
+                  <button type="button" value={1}
+                    onClick={(e) => setDuration(e)}
+                    className={`products-btn  `}>{get(posts, "[0].installment_prices[1].duration")}  мес</button>
+                  <button type="button" value={0}
+                    onClick={(e) => setDuration(e)}
+                    className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration") * 3}   мес</button>
+                  <button type="button" value={2}
+                    onClick={(e) => setDuration(e)}
+                    className={`products-btn  `}>{get(posts, "[0].installment_prices[2].duration")}    мес</button>
                 </div>)}
               <div className="products-natsenka">Наценка: <b> 5% </b></div>
               <div className="products-xarakteristika">
@@ -210,8 +246,8 @@ const countFunction = ()=>{
                   </div>
                 </li>
               </ul>
-              <button type="button" onClick={countFunction} 
-              className="productspage-zakaz">
+              <button type="button" onClick={countFunction}
+                className="productspage-zakaz">
                 Добавить в корзину
               </button>
             </div>
