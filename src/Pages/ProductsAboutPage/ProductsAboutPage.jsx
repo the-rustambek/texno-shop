@@ -52,18 +52,7 @@ const countFunction = ()=>{
 }
 
 /****************    months ******************************** */
-const [money,setMoney]=useState(0);
-
-const months = (e)=>{
-setMoney(e?.target?.value)
-
- } 
-  const [active, setActive] = useState(false);
-
- const handleActive = (event) => {
-  setActive(!active);
-  console.log(event?.target,"adlooas")
-};
+ 
 
   return (
 
@@ -113,10 +102,10 @@ setMoney(e?.target?.value)
               </div>
               {loading ? (<Skeleton variant="rounded" height={40} />) : (
                 <div className="products-month">
-                  <button type="button"  alt="1" className={`products-btn ${active ? "products-btn-active" : ""}`}>{get(posts, "[0].installment_prices[0].duration")} мес</button>
-                  <button type="button"   className={`products-btn ${active ? "products-btn-active" : ""}`}>{get(posts, "[0].installment_prices[1].duration")} мес</button>
-                  <button type="button"   className={`products-btn ${active ? "products-btn-active" : ""}`}>{get(posts, "[0].installment_prices[0].duration") * 3}  мес</button>
-                  <button type="button"  className={`products-btn ${active ? "products-btn-active" : ""}`}>{get(posts, "[0].installment_prices[2].duration")}  мес</button>
+                  <button type="button"  alt="1" className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration")} мес</button>
+                  <button type="button"   className={`products-btn  `}>{get(posts, "[0].installment_prices[1].duration")} мес</button>
+                  <button type="button"   className={`products-btn  `}>{get(posts, "[0].installment_prices[0].duration") * 3}  мес</button>
+                  <button type="button"  className={`products-btn  `}>{get(posts, "[0].installment_prices[2].duration")}  мес</button>
                 </div>)}
               <div className="products-natsenka">Наценка: <b> 5% </b></div>
               <div className="products-xarakteristika">
