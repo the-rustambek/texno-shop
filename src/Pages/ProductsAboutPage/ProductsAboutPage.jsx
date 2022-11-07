@@ -85,10 +85,10 @@ export default function ProductsAboutPage() {
               {loading ? (<Skeleton variant="rounded" height={40}  /> ) : (
               <div className="products-month">
               
-  <button className="products-btn">{get(posts,"[0].installment_prices[0].duration")} мес</button>
-                <button className="products-btn">{get(posts,"[0].installment_prices[1].duration")} мес</button>
-                <button className="products-btn">{get(posts,"[0].installment_prices[0].duration")*3}  мес</button>
-                <button className="products-btn">{get(posts,"[0].installment_prices[2].duration")}  мес</button>
+  <button type="button" className="products-btn">{get(posts,"[0].installment_prices[0].duration")} мес</button>
+                <button type="button" className="products-btn">{get(posts,"[0].installment_prices[1].duration")} мес</button>
+                <button type="button" className="products-btn">{get(posts,"[0].installment_prices[0].duration")*3}  мес</button>
+                <button type="button" className="products-btn">{get(posts,"[0].installment_prices[2].duration")}  мес</button>
                </div> )} 
               <div className="products-natsenka">Наценка: <b> 5% </b></div>
               <div className="products-xarakteristika">
