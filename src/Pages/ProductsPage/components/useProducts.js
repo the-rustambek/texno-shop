@@ -13,7 +13,9 @@ const Posts = ({ posts, loading }) => {
           <>
             {product ? (
               <div className="products-thumb">
-                <Link to={`/products-about/=${product?.slug}`}>
+                <Link  onClick={() =>
+                            window.scrollTo({ top: 0 })
+                        } to={`/products-about/=${product?.slug}`}>
                   <img
                     // src={productsImage}
                     src={product?.img}
@@ -37,7 +39,9 @@ const Posts = ({ posts, loading }) => {
           </>
 
           {product ? (
-            <Link to={`/products-about/=${product?.slug}`}>
+            <Link  onClick={() =>
+              window.scrollTo({ top: 0 })
+          } to={`/products-about/=${product?.slug}`}>
               <h3 className="products-name">{product?.name} </h3>
             </Link>
           ) : (

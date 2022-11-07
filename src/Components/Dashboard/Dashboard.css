@@ -41,7 +41,7 @@
   color: white;
   fill: white;
   padding: 14px 30px 14px 0px;
-  padding-left: 10px;
+  padding-left: 18px;
   transition: 0.3s;
   border-radius: 50px 0px 0px 50px;
   margin: 12px 0;
@@ -53,6 +53,7 @@
 .dashboard-link:hover {
     background: #ffffff;
     border: 1px solid #000000;
+    border-right:0px solid white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
      color: #3d639d;
     fill: #3d639d;
@@ -81,4 +82,49 @@
 }
 .homesvg-fill:hover{
     fill: green;
+}
+
+
+
+
+ 
+.dashboard-text {
+  margin: 0;
+  margin-left: 4px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.3px;
+  color: #fff;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.dashboard-link {
+ 
+  text-decoration: none;
+ 
+  transition: 0.4 ease;
+  box-sizing: border-box;
+}
+.dashboard-link:hover {
+  background: #fff;
+}
+.dashboard-link:hover .icon {
+  fill: #3d639d;
+}
+.dashboard-link:hover .dashboard-text {
+  color: #3d639d;
+}
+.dashboard-link-active {
+  background: #fff;
+  border-right: 0px solid #3d639d;
+}
+.dashboard-link-active .icon {
+  fill: #3d639d;
+}
+.dashboard-link-active .dashboard-text {
+  color: #3d639d;
 }
